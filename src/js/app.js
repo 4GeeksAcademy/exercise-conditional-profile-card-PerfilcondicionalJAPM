@@ -29,12 +29,31 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  // Avatar
   let avatar = "";
   if (variables.avatarURL) {
     avatar = variables.avatarURL;
   } else {
     avatar = "https://via.placeholder.com/150";
+  }
+
+  let defaultName = "Jesus";
+  let defaultLastName = "Perdomo";
+  let defaultRole = "Web Developer";
+  let defaultCity = "Miami";
+  let defaultCountry = "USA";
+
+  let name = "";
+  if (variables.name) {
+    name = variables.name;
+  } else {
+    name = defaultName;
+  }
+
+  let lastName = "";
+  if (variables.lastName) {
+    lastName = variables.lastName;
+  } else {
+    lastName = defaultLastName;
   }
 
   let fullName = "";
@@ -45,25 +64,37 @@ function render(variables = {}) {
   } else if (variables.lastName) {
     fullName = variables.lastName;
   } else {
-    fullName = "";
+    fullName = defaultName + "" + lastName;
   }
 
   let role = "";
   if (variables.role) {
     role = variables.role;
   } else {
-    role = "";
+    role = defaultRole;
+  }
+
+  let city = "";
+  if (variables.city) {
+    city = variables.city;
+  } else {
+    city = defaultCity;
+  }
+
+  let country = "";
+  if (variables.country) {
+    country = variables.country;
+  } else {
+    country = defaultCountry;
   }
 
   let location = "";
-  if (variables.city && variables.country) {
-    location = variables.city + ", " + variables.country;
-  } else if (variables.city) {
-    location = variables.city;
-  } else if (variables.country) {
-    location = variables.country;
-  } else {
-    location = "";
+  if (city && country) {
+    location = city + ", " + country;
+  } else if (city) {
+    location = city;
+  } else if (country) {
+    location = country;
   }
 
   let socialClass = "";
