@@ -29,6 +29,75 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  // Avatar
+let avatar = "";
+if (variables.avatarURL) {
+  avatar = variables.avatarURL;
+} else {
+  avatar = "https://via.placeholder.com/150";
+}
+
+
+let fullName = "";
+if (variables.name && variables.lastName) {
+  fullName = variables.name + " " + variables.lastName;
+} else if (variables.name) {
+  fullName = variables.name;
+} else if (variables.lastName) {
+  fullName = variables.lastName;
+} else {
+  fullName = "";
+}
+
+
+let role = "";
+if (variables.role) {
+  role = variables.role;
+} else {
+  role = "";
+}
+
+
+let location = "";
+if (variables.city && variables.country) {
+  location = variables.city + ", " + variables.country;
+} else if (variables.city) {
+  location = variables.city;
+} else if (variables.country) {
+  location = variables.country;
+} else {
+  location = "";
+}
+
+
+let socialClass = "";
+if (variables.socialMediaPosition) {
+  socialClass = variables.socialMediaPosition;
+} else {
+  socialClass = "position-left";
+}
+
+
+let twitter = "";
+if (variables.twitter) {
+  twitter = '<li><a href="https://twitter.com/' + variables.twitter + '"><i class="fab fa-twitter"></i></a></li>';
+}
+
+let github = "";
+if (variables.github) {
+  github = '<li><a href="https://github.com/' + variables.github + '"><i class="fab fa-github"></i></a></li>';
+}
+
+let linkedin = "";
+if (variables.linkedin) {
+  linkedin = '<li><a href="https://linkedin.com/in/' + variables.linkedin + '"><i class="fab fa-linkedin"></i></a></li>';
+}
+
+let instagram = "";
+if (variables.instagram) {
+  instagram = '<li><a href="https://instagram.com/' + variables.instagram + '"><i class="fab fa-instagram"></i></a></li>';
+}
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
