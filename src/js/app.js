@@ -22,6 +22,7 @@ import "../style/index.css";
         city: null
     }
  */
+
 function render(variables = {}) {
   console.log("These are the current variables: ", variables); // print on the console
   // here we ask the logical questions to make decisions on how to build the html
@@ -41,6 +42,7 @@ function render(variables = {}) {
   let defaultRole = "Web Developer";
   let defaultCity = "Miami";
   let defaultCountry = "USA";
+
 
   let name = "";
   if (variables.name) {
@@ -104,6 +106,7 @@ function render(variables = {}) {
     socialClass = "position-left";
   }
 
+  
   let twitter = "";
   if (variables.twitter) {
     twitter =
